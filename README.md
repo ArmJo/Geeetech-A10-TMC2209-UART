@@ -40,7 +40,7 @@ The hardware is done!
 Now it is time for the firmware. You need [Marlin 2](https://marlinfw.org/meta/download/) for this as far as I know.
 I use [Arduino](https://www.arduino.cc/en/Main.Software) to edit and flash the firmware.
 In Configuration.h:
-1. Change the driver type to TMC2209 (not TMC2209_STANDALONE!)
+1. Change the driver type to TMC2209 (not TMC2209_STANDALONE!) \n
 
 ![Change driver](./img/driver.JPG)
 

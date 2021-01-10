@@ -13,13 +13,16 @@ The pins MS1 and MS2 have an internal pull-down resistor, so if you set both jum
 
 ### Hardware:
 1. First you need to solder a new header to the unpopulated UART-Header on the board. I was lazy and did this from above - not very clean but doable.
+
 ![New header](./img/solder.jpg)
 
 2. You need to cut the driver TX and RX Pins, because the GT2560 Board is for A4988 Driver and have other functions (MS3 and RST)
+
 ![Cut driver](./img/cut.jpg)
 ![Driver top](./img/driver_top.jpg)
 
 3. Next you have to put in the jumper for each driver and give each one a drifferent adddress. Write down which driver you give which address! (the picture only shows it for one driver with address 2!)
+
 ![Set driver address](./img/address.jpg)
 
 4. You need to cut and solder some wires so you can connect one pin from the header to all 4 drivers. You need one two wires like this - one for TX and one for RX.
@@ -27,6 +30,7 @@ The pins MS1 and MS2 have an internal pull-down resistor, so if you set both jum
 5. You put in the driver (**make sure they are in the correct direction**) - for me the color blue and black did not match with the board!
 
 6. You connect the wires to the header and the drivers (RX to RX and TX to TX and **not crossed** like you know it from UART )
+
 ![Hardware done](./img/done.jpg)
 
 The hardware is done!
@@ -37,16 +41,20 @@ Now it is time for the firmware. You need [Marlin 2](https://marlinfw.org/meta/d
 I use [Arduino](https://www.arduino.cc/en/Main.Software) to edit and flash the firmware.
 In Configuration.h:
 1. Change the driver type to TMC2209 (not TMC2209_STANDALONE!)
+
 ![Change driver](./img/driver.JPG)
 
 In Configuration_adv.h:
 1. Define the pins to use for UART and set the baudrate - on this board Serial3 and 115200
+
 ![UART](./img/uart.JPG)
 
 2. Define the addresses for each driver (X is really address 0 for me)
+
 ![Set address](./img/add.JPG)
 
 3. (Optional) Now you can do additional configurations for the driver. For example if they should use stealthchop by default or set a hybrid threshold.  
+
 ![Optional Configs](./img/stealth.JPG)
 
 I highly recommend turning on TMC_DEBUG for a first test!
@@ -59,6 +67,7 @@ Now it is time to flash the firmware.
 
 After uploading and turning on the printer you can send G-Code "M122" to test your configuration.
 I used the Terminal on my OctoPrint:
+
 ![Test connection1](./img/conn.JPG)
 ![Test connection1](./img/conn2.JPG)
 

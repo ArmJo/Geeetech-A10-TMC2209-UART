@@ -63,7 +63,9 @@ You can find a lot more information on the [Marlin documentation](https://marlin
 
 I don't use sensorless homing so I can not tell you how to use it.
 
-Now it is time to flash the firmware.
+4. Now it is time to flash the firmware.
+
+### Test your connection
 
 After uploading and turning on the printer you can send G-Code "M122" to test your configuration.
 I used the Terminal on my OctoPrint:  

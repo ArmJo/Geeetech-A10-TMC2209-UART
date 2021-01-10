@@ -9,7 +9,7 @@ The pins MS1 and MS2 have an internal pull-down resistor, so if you set both jum
 
 ## How to do it step-by-step:
 
- **_I am not responsible for your hardware. You do this at your own risk.._**
+ **_I am not responsible for your hardware or software. You do this at your own risk._**
 
 ### Hardware:
 1. First you need to solder a new header to the unpopulated UART-Header on the board. I was lazy and did this from above - not very clean but doable.  

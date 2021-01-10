@@ -71,6 +71,7 @@ After uploading and turning on the printer you can send G-Code "M122" to test yo
 I used the Terminal on my OctoPrint:  
 
 ![Test connection1](./img/conn.JPG)  
-![Test connection1](./img/conn2.JPG)  
+![Test connection2](./img/conn2.JPG)  
 
-You can also change settings for the driver with the LCD and rotatry encoder under "Configuration" -> "Advanced Settings" -> "TMC Drivers"
+You can also change settings for the driver with the LCD and rotatry encoder under "Configuration" -> "Advanced Settings" -> "TMC Drivers"   
+![LCD Config](./img/lcd.jpg)   

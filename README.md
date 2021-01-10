@@ -61,7 +61,7 @@ I highly recommend turning on TMC_DEBUG for a first test!
 
 You can find a lot more information on the [Marlin documentation](https://marlinfw.org/docs/hardware/tmc_drivers.html).
 
-I don't use sensorless homing so I can not tell you how to use it.
+I don't use sensorless homing so I can not tell you how to use it. You can find my configuration with BLTouch [here](https://github.com/Jonas2903/Marlin-Geeetech-A10-TMC2209-UART-BLTouch).
 
 4. Now it is time to flash the firmware.
 

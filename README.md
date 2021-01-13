@@ -75,3 +75,34 @@ I used the Terminal on my OctoPrint:
 
 You can also change settings for the driver with the LCD and rotatry encoder under "Configuration" -> "Advanced Settings" -> "TMC Drivers"   
 ![LCD Config](./img/lcd.jpg)   
+
+## UNTESTED: Geeetech A10 with GT2560 v4 (no jumpers) and without cutting the driver pins  
+
+The new Geeetech A10 [GT2560 v4 board](https://www.geeetech.com/gt2560-v40-control-board-for-a10-printer-p-1146.html) does not have jumpers and no schematic is available so far. So there are no jumpers to set the address of the driver.  
+A workaround is to insert connectors between the driver and the board. The pins can be cut to set a different address for each driver.  
+![UART](./img/connectors.jpeg)  
+
+1. Cut the connectors to the correct length
+2. Cut the pins for PDN-UART (TX/RX)
+3. Cut the pins MS1 and/or MS2 for each driver differently (Pin = 1 and no Pin = 0) to set the address
+4. Insert the connectors to the driver and the board
+
+I tried this on my GT2560 v3 board and it worked.  
+![UART](./img/inserted.jpeg)  
+
+The drivers fit very tigth in the case, because of the TX/RX wiring - maybe bend them over?!  
+
+Another difference to the v3 board is the UART connector. It has a different pin layout and is populated.  
+![UART](./img/boardBot.jpeg)  
+![UART](./img/boardTop.jpeg)  
+
+Viewed from above:  
+
+1 | 2 | 3 | 4
+:----: | :----: | :----: | :----:
+GND | Tx | Rx | Vcc
+
+## BIGTREETECH v1.2
+
+BIGTREETECH v1.2 TMC2209 drivers do not have directly TX/RX pins instead two PDN-UART pins.
+Please read [here](https://github.com/bigtreetech/BIGTREETECH-TMC2209-V1.2/blob/master/manual/TMC2209-V1.2-manual.pdf) in **chapter 8** how to use them.

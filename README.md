@@ -77,7 +77,7 @@ You can also change settings for the driver with the LCD and rotatry encoder und
 ![LCD Config](./img/lcd.jpg)   
 
 ## Klipper
-I am currently switching from Marlin to [Klipper](https://github.com/KevinOConnor/klipper) so I add my config for it here too:
+I am currently switching from Marlin to [Klipper](https://github.com/KevinOConnor/klipper) so I added my config for it here too:
 
 ### Hardware
 Same as above, but you __only need the RX-Wire (yellow)__.

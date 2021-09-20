@@ -1,7 +1,7 @@
 # How to upgrade Geeetech A10 with TMC2209 in UART Mode
-I want to show here how to use [TMC2209 Driver](https://www.trinamic.com/fileadmin/assets/Products/ICs_Documents/TMC2209_Datasheet_V103.pdf) with the Geeetech A10 in UART Mode.
+I want to show here how to use [TMC2209 Driver](https://www.trinamic.com/fileadmin/assets/Products/ICs_Documents/TMC2209_Datasheet_V103.pdf) with the Geeetech A10 in UART Mode (mainly for Marlin but Klipper below!).
 
-First of all have a look at the [board](http://geeetech.com/forum/download/file.php?id=4635) and the [schematic](https://github.com/Geeetech3D/Diagram/blob/master/GT2560_V3.0_SCH.pdf)
+First of all have a look at the [board](http://geeetech.com/forum/download/file.php?id=4635) and the [schematic](https://github.com/Geeetech3D/Diagram/blob/master/GT2560_V3.0_SCH.pdf) (GT2560 v3!).
 Under the X-Axis Driver is a not populated header called "UART". This can be used to software control all TMC 2209 Driver via UART.
 
 The jumper you can set underneath the driver are not only for the Step-Configuration, but you can also use them to give them an address on the UART-"Bus". More information on it [here](https://wiki.fysetc.com/Silent2209/) and [here](https://learn.watterott.com/silentstepstick/pinconfig/tmc2209/)
@@ -75,6 +75,32 @@ I used the Terminal on my OctoPrint:
 
 You can also change settings for the driver with the LCD and rotatry encoder under "Configuration" -> "Advanced Settings" -> "TMC Drivers"   
 ![LCD Config](./img/lcd.jpg)   
+
+## Klipper
+I am currently switching from Marlin to [Klipper](https://github.com/KevinOConnor/klipper) so I add my config for it here too:
+
+### Hardware
+Same as above, but you __only need the RX-Wire (yellow)__.
+![Test connection2](./img/klipper.jpg)
+
+The other wires are for my other upgrades like exhaust fan and chamber temperature.
+
+### Software
+
+For each stepper you need to add a section like this:
+
+```bash
+[tmc2209 stepper_x]
+uart_pin: PJ0
+uart_address: 0
+interpolate: True
+run_current: 0.55
+hold_current: 0.5
+sense_resistor: 0.110
+stealthchop_threshold: 9999
+```
+
+The pin `PJ0` is RX3 on the PCB. Change the `uart_address` according to the address you set with the jumpers.
 
 ## UNTESTED: Geeetech A10 with GT2560 v4 (no jumpers) and without cutting the driver pins  
 
